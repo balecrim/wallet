@@ -36,9 +36,13 @@ class BalanceViewModel {
         self.walletPrivateKey = walletPrivateKey
     }
 
-    func startStateMachine() {
+    func resetStateMachine() {
         currentState = .loading
         refreshWalletState(for: EthereumAddress(walletAddress), using: client)
+    }
+
+    func initiateTransfer() {
+        executeTransfer()
     }
 
 }
@@ -81,6 +85,50 @@ private extension BalanceViewModel {
 
             self.currentState = .loaded(balance: formatted! + " ETH")
 
+        }
+
+    }
+
+    func executeTransfer() {
+
+        let transfer = TransferManager(
+            _wallet: EthereumAddress(Secrets.walletID),
+            _token: EthereumAddress("0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"),
+            _to: EthereumAddress(Secrets.recipientWallet),
+            _amount: 10000000000000000,
+            _data: Data()
+        )
+
+        let gasPrice: BigUInt = 12 * (1_000_000_000)
+        let gasLimit: BigUInt = 250_000
+
+        guard let transaction = try? transfer.transaction(gasPrice: gasPrice, gasLimit: gasLimit) else {
+            self.currentState = .error(message: "Error: failed to generate transaction")
+            return
+        }
+
+        let keyStorage = EthereumKeyLocalStorage()
+        try? keyStorage.storePrivateKey(key: Secrets.walletPrivateKey.web3.hexData!)
+
+        guard let account = try? EthereumAccount(keyStorage: keyStorage) else {
+            self.currentState = .error(message: "Error: failed to generate account")
+            return
+        }
+
+        client.eth_sendRawTransaction(transaction, withAccount: account) { error, result in
+            if let error = error {
+                self.currentState = .error(message: "Error: " + error.localizedDescription)
+                return
+            }
+
+            guard let result = result else {
+                self.currentState = .error(message: "Error: failed to unwrap transaction result")
+                print(result)
+                return
+            }
+
+            self.currentState = .loading
+            self.resetStateMachine()
         }
 
     }

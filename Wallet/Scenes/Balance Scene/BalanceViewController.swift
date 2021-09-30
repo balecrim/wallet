@@ -23,7 +23,7 @@ class ViewController: UIViewController {
             }
         }
 
-        viewModel.startStateMachine()
+        viewModel.resetStateMachine()
     }
 
     func handleStateUpdates(newState: BalanceState) {
@@ -37,6 +37,10 @@ class ViewController: UIViewController {
         }
 
         print(newState)
+    }
+
+    @IBAction func transferButtonPressed(_ sender: Any) {
+        viewModel.initiateTransfer()
     }
 
 }
