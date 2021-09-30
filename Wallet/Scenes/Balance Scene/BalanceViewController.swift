@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BalanceViewController.swift
 //  Wallet
 //
 //  Created by Bernardo Alecrim on 30/09/2021.
@@ -13,7 +13,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
 
 }
 

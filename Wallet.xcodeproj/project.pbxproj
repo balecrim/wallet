@@ -3,27 +3,32 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7216AD422706641300D6BB90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD412706641300D6BB90 /* AppDelegate.swift */; };
 		7216AD442706641300D6BB90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD432706641300D6BB90 /* SceneDelegate.swift */; };
-		7216AD462706641300D6BB90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD452706641300D6BB90 /* ViewController.swift */; };
+		7216AD462706641300D6BB90 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD452706641300D6BB90 /* BalanceViewController.swift */; };
 		7216AD492706641300D6BB90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7216AD472706641300D6BB90 /* Main.storyboard */; };
 		7216AD4B2706641500D6BB90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7216AD4A2706641500D6BB90 /* Assets.xcassets */; };
 		7216AD4E2706641500D6BB90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7216AD4C2706641500D6BB90 /* LaunchScreen.storyboard */; };
+		7216AD572706662E00D6BB90 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 7216AD562706662E00D6BB90 /* web3.swift */; };
+		7216AD5C2706674700D6BB90 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */; };
+		7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5E270667B400D6BB90 /* TransferManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7216AD3E2706641300D6BB90 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7216AD412706641300D6BB90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7216AD432706641300D6BB90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7216AD452706641300D6BB90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7216AD452706641300D6BB90 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		7216AD482706641300D6BB90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7216AD4A2706641500D6BB90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7216AD4D2706641500D6BB90 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7216AD4F2706641500D6BB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
+		7216AD5E270667B400D6BB90 /* TransferManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7216AD572706662E00D6BB90 /* web3.swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +62,49 @@
 		7216AD402706641300D6BB90 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				7216AD5D2706679D00D6BB90 /* Transactions */,
+				7216AD582706663900D6BB90 /* Scenes */,
 				7216AD412706641300D6BB90 /* AppDelegate.swift */,
 				7216AD432706641300D6BB90 /* SceneDelegate.swift */,
-				7216AD452706641300D6BB90 /* ViewController.swift */,
 				7216AD472706641300D6BB90 /* Main.storyboard */,
 				7216AD4A2706641500D6BB90 /* Assets.xcassets */,
 				7216AD4C2706641500D6BB90 /* LaunchScreen.storyboard */,
 				7216AD4F2706641500D6BB90 /* Info.plist */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		7216AD582706663900D6BB90 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7216AD5A2706665100D6BB90 /* Transfers Scene */,
+				7216AD592706664300D6BB90 /* Balance Scene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7216AD592706664300D6BB90 /* Balance Scene */ = {
+			isa = PBXGroup;
+			children = (
+				7216AD452706641300D6BB90 /* BalanceViewController.swift */,
+				7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */,
+			);
+			path = "Balance Scene";
+			sourceTree = "<group>";
+		};
+		7216AD5A2706665100D6BB90 /* Transfers Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Transfers Scene";
+			sourceTree = "<group>";
+		};
+		7216AD5D2706679D00D6BB90 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				7216AD5E270667B400D6BB90 /* TransferManager.swift */,
+			);
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +123,9 @@
 			dependencies = (
 			);
 			name = Wallet;
+			packageProductDependencies = (
+				7216AD562706662E00D6BB90 /* web3.swift */,
+			);
 			productName = Wallet;
 			productReference = 7216AD3E2706641300D6BB90 /* Wallet.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +153,9 @@
 				Base,
 			);
 			mainGroup = 7216AD352706641300D6BB90;
+			packageReferences = (
+				7216AD552706662E00D6BB90 /* XCRemoteSwiftPackageReference "web3" */,
+			);
 			productRefGroup = 7216AD3F2706641300D6BB90 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +183,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7216AD462706641300D6BB90 /* ViewController.swift in Sources */,
+				7216AD462706641300D6BB90 /* BalanceViewController.swift in Sources */,
+				7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */,
 				7216AD422706641300D6BB90 /* AppDelegate.swift in Sources */,
 				7216AD442706641300D6BB90 /* SceneDelegate.swift in Sources */,
+				7216AD5C2706674700D6BB90 /* BalanceViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Wallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alecrim.tests.Wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -306,6 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Wallet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -313,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.alecrim.tests.Wallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -339,6 +389,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7216AD552706662E00D6BB90 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argentlabs/web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7216AD562706662E00D6BB90 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7216AD552706662E00D6BB90 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7216AD362706641300D6BB90 /* Project object */;
 }
