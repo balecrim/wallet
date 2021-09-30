@@ -16,6 +16,7 @@
 		7216AD572706662E00D6BB90 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 7216AD562706662E00D6BB90 /* web3.swift */; };
 		7216AD5C2706674700D6BB90 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */; };
 		7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5E270667B400D6BB90 /* TransferManager.swift */; };
+		7216AD6427066A3B00D6BB90 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD6327066A3B00D6BB90 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		7216AD4F2706641500D6BB90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 		7216AD5E270667B400D6BB90 /* TransferManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferManager.swift; sourceTree = "<group>"; };
+		7216AD6327066A3B00D6BB90 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 		7216AD402706641300D6BB90 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				7216AD61270669F500D6BB90 /* Secrets */,
+				7216AD602706693500D6BB90 /* Services */,
 				7216AD5D2706679D00D6BB90 /* Transactions */,
 				7216AD582706663900D6BB90 /* Scenes */,
 				7216AD412706641300D6BB90 /* AppDelegate.swift */,
@@ -105,6 +109,21 @@
 				7216AD5E270667B400D6BB90 /* TransferManager.swift */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		7216AD602706693500D6BB90 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7216AD61270669F500D6BB90 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				7216AD6327066A3B00D6BB90 /* Secrets.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7216AD462706641300D6BB90 /* BalanceViewController.swift in Sources */,
+				7216AD6427066A3B00D6BB90 /* Secrets.swift in Sources */,
 				7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */,
 				7216AD422706641300D6BB90 /* AppDelegate.swift in Sources */,
 				7216AD442706641300D6BB90 /* SceneDelegate.swift in Sources */,
