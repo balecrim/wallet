@@ -17,6 +17,8 @@
 		7216AD5C2706674700D6BB90 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */; };
 		7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD5E270667B400D6BB90 /* TransferManager.swift */; };
 		7216AD6427066A3B00D6BB90 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD6327066A3B00D6BB90 /* Secrets.swift */; };
+		7216AD662706811600D6BB90 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD652706811600D6BB90 /* TransfersViewController.swift */; };
+		7216AD682706812100D6BB90 /* TransfersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7216AD672706812100D6BB90 /* TransfersViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		7216AD5B2706674700D6BB90 /* BalanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 		7216AD5E270667B400D6BB90 /* TransferManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferManager.swift; sourceTree = "<group>"; };
 		7216AD6327066A3B00D6BB90 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		7216AD652706811600D6BB90 /* TransfersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
+		7216AD672706812100D6BB90 /* TransfersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 		7216AD5A2706665100D6BB90 /* Transfers Scene */ = {
 			isa = PBXGroup;
 			children = (
+				7216AD652706811600D6BB90 /* TransfersViewController.swift */,
+				7216AD672706812100D6BB90 /* TransfersViewModel.swift */,
 			);
 			path = "Transfers Scene";
 			sourceTree = "<group>";
@@ -207,7 +213,9 @@
 				7216AD5F270667B400D6BB90 /* TransferManager.swift in Sources */,
 				7216AD422706641300D6BB90 /* AppDelegate.swift in Sources */,
 				7216AD442706641300D6BB90 /* SceneDelegate.swift in Sources */,
+				7216AD662706811600D6BB90 /* TransfersViewController.swift in Sources */,
 				7216AD5C2706674700D6BB90 /* BalanceViewModel.swift in Sources */,
+				7216AD682706812100D6BB90 /* TransfersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

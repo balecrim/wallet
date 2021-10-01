@@ -5,9 +5,9 @@
 //  Created by Bernardo Alecrim on 30/09/2021.
 //
 
-import Foundation
-import web3
 import BigInt
+import web3
+import Foundation
 
 enum BalanceState {
     case loading
