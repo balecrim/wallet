@@ -17,10 +17,11 @@ struct TransferCellViewModel: Equatable, Hashable {
     let transactionIndex: Int
 }
 
-
 class TransfersViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var errorLabel: UILabel!
 
     lazy var dataSource = buildDataSource()
     let viewModel = TransfersViewModel()
@@ -28,7 +29,9 @@ class TransfersViewController: UIViewController {
     override func viewDidLoad() {
 
         viewModel.stateListener = { [weak self] state in
-            self?.handleStateUpdates(newState: state)
+            DispatchQueue.main.async {
+                self?.handleStateUpdates(newState: state)
+            }
         }
 
         viewModel.resetStateMachine()
@@ -36,9 +39,15 @@ class TransfersViewController: UIViewController {
     }
 
     func handleStateUpdates(newState: TransfersState) {
+
+        var tableViewHidden = true
+        var activityIndicatorHidden = true
+        var errorLabelHidden = true
+
         switch newState {
         case let .error(message):
-            break //TODO
+            errorLabel.text = message
+            errorLabelHidden = false
         case let .loaded(transfers):
             var snapshot = NSDiffableDataSourceSnapshot<Section, TransferCellViewModel>()
 
@@ -46,11 +55,16 @@ class TransfersViewController: UIViewController {
             snapshot.appendItems(transfers, toSection: .transfers)
 
             dataSource.apply(snapshot, animatingDifferences: true)
+            tableViewHidden = false
         case .loading:
-            break //TODO
+            activityIndicator.startAnimating()
+            activityIndicatorHidden = false
         }
 
-        print(newState)
+        self.tableView.isHidden = tableViewHidden
+        self.activityIndicator.isHidden = activityIndicatorHidden
+        self.errorLabel.isHidden = errorLabelHidden
+
     }
 
     func buildDataSource() -> UITableViewDiffableDataSource<Section, TransferCellViewModel> {
@@ -65,7 +79,6 @@ class TransfersViewController: UIViewController {
 
                 cell.textLabel?.text = transferViewModel.amount
                 cell.detailTextLabel?.text = transferViewModel.originAddress
-            
 
                 return cell
             }

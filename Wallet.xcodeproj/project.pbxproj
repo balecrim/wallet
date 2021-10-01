@@ -69,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				7216AD61270669F500D6BB90 /* Secrets */,
-				7216AD602706693500D6BB90 /* Services */,
 				7216AD5D2706679D00D6BB90 /* Transactions */,
 				7216AD582706663900D6BB90 /* Scenes */,
 				7216AD412706641300D6BB90 /* AppDelegate.swift */,
@@ -115,13 +114,6 @@
 				7216AD5E270667B400D6BB90 /* TransferManager.swift */,
 			);
 			path = Transactions;
-			sourceTree = "<group>";
-		};
-		7216AD602706693500D6BB90 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		7216AD61270669F500D6BB90 /* Secrets */ = {

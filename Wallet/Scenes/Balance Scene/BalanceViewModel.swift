@@ -121,9 +121,8 @@ private extension BalanceViewModel {
                 return
             }
 
-            guard let result = result else {
+            guard result != nil else {
                 self.currentState = .error(message: "Error: failed to unwrap transaction result")
-                print(result)
                 return
             }
 

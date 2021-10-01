@@ -16,7 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="XwT-j5-mzk">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-na-VNH">
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="XwT-j5-mzk">
                                 <rect key="frame" x="135" y="358.66666666666669" width="158" height="209.00000000000006"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CTt-D4-G17">
@@ -61,12 +64,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="V7D-na-VNH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0dc-Tz-Ba9"/>
                             <constraint firstItem="XwT-j5-mzk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nx6-Nz-sDe"/>
+                            <constraint firstItem="V7D-na-VNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U54-wQ-TPJ"/>
                             <constraint firstItem="XwT-j5-mzk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cL5-RA-Q8h"/>
+                            <constraint firstItem="XwT-j5-mzk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="dWq-CT-ImI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XwT-j5-mzk" secondAttribute="trailing" constant="32" id="if0-io-ep2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Wallet" id="zDY-Eo-hrp"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="V7D-na-VNH" id="VMZ-j0-VX3"/>
+                        <outlet property="mainStackView" destination="XwT-j5-mzk" id="4dF-eR-cJP"/>
                         <outlet property="walletBalanceLabel" destination="G3B-Yl-2hg" id="lj6-5b-umE"/>
                     </connections>
                 </viewController>
@@ -82,6 +91,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEn-eK-5fA" userLabel="Error Label">
+                                <rect key="frame" x="32" y="463" width="364" height="0.0"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="avh-zP-hBV" userLabel="Activity Indicator">
+                                <rect key="frame" x="195.66666666666666" y="444.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RyH-8B-Wnb">
                                 <rect key="frame" x="0.0" y="88" width="428" height="838"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,7 +122,7 @@
                                                     <rect key="frame" x="19.999999999999996" y="23.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -118,8 +136,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RyH-8B-Wnb" firstAttribute="leading" secondItem="2hl-aI-wDn" secondAttribute="leading" id="0wu-OX-Lu3"/>
+                            <constraint firstItem="avh-zP-hBV" firstAttribute="centerY" secondItem="Yd3-kV-r0F" secondAttribute="centerY" id="2uL-4I-zOO"/>
+                            <constraint firstItem="avh-zP-hBV" firstAttribute="centerX" secondItem="Yd3-kV-r0F" secondAttribute="centerX" id="31M-gr-DQP"/>
                             <constraint firstItem="RyH-8B-Wnb" firstAttribute="top" secondItem="2hl-aI-wDn" secondAttribute="top" id="A3g-o3-SjP"/>
                             <constraint firstItem="RyH-8B-Wnb" firstAttribute="trailing" secondItem="2hl-aI-wDn" secondAttribute="trailing" id="Dgh-2E-Zgx"/>
+                            <constraint firstItem="AEn-eK-5fA" firstAttribute="centerY" secondItem="Yd3-kV-r0F" secondAttribute="centerY" id="R9e-O2-hLW"/>
+                            <constraint firstItem="AEn-eK-5fA" firstAttribute="leading" secondItem="2hl-aI-wDn" secondAttribute="leading" constant="32" id="b8U-ru-qTY"/>
+                            <constraint firstItem="2hl-aI-wDn" firstAttribute="trailing" secondItem="AEn-eK-5fA" secondAttribute="trailing" constant="32" id="cT6-lY-PKN"/>
                             <constraint firstAttribute="bottom" secondItem="RyH-8B-Wnb" secondAttribute="bottom" id="dt0-1b-kqc"/>
                         </constraints>
                     </view>
@@ -127,6 +150,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="wYl-7i-UQi"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="avh-zP-hBV" id="1u5-go-Hb3"/>
+                        <outlet property="errorLabel" destination="AEn-eK-5fA" id="1Ax-2m-kww"/>
                         <outlet property="tableView" destination="RyH-8B-Wnb" id="J1u-G3-qHU"/>
                     </connections>
                 </viewController>

@@ -9,7 +9,7 @@ import BigInt
 import Foundation
 import web3
 
-enum TransfersState {
+enum TransfersState: Equatable {
     case loading
     case loaded(transfers: [TransferCellViewModel])
     case error(message: String)
@@ -66,8 +66,8 @@ private extension TransfersViewModel {
 
         let mapped = events.enumerated().map { index, event in
             TransferCellViewModel(
-                originAddress: event.from.value,
-                amount: String(event.value) + " wei",
+                originAddress: "Origin address: " + event.from.value,
+                amount: "Transaction amount: " + String(event.value) + " wei",
                 transactionIndex: index
             )
         }

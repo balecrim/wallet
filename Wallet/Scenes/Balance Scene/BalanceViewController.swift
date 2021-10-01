@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     var viewModel = BalanceViewModel()
 
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet private weak var walletBalanceLabel: UILabel!
+
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +32,21 @@ class ViewController: UIViewController {
     func handleStateUpdates(newState: BalanceState) {
         switch newState {
         case let .error(message):
-            break //TODO
+            walletBalanceLabel.text = message
+
+            activityIndicator.isHidden = true
+            mainStackView.isHidden = false
         case let .loaded(balanceString):
             walletBalanceLabel.text = balanceString
-        case .loading:
-            break //TODO
-        }
 
-        print(newState)
+            activityIndicator.isHidden = true
+            mainStackView.isHidden = false
+        case .loading:
+            activityIndicator.startAnimating()
+
+            activityIndicator.isHidden = false
+            mainStackView.isHidden = true
+        }
     }
 
     @IBAction func transferButtonPressed(_ sender: Any) {
